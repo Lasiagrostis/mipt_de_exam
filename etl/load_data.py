@@ -50,4 +50,5 @@ def load_breast_cancer_data():
     df.to_csv(save_path, index=False)
     logger.info(f"Данные сохранены в файл: {save_path}")
     
-load_breast_cancer_data()
+if __name__ == "__main__":
+    load_breast_cancer_data()

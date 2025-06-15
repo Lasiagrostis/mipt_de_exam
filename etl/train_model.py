@@ -81,4 +81,5 @@ def train_logistic_regression():
 
     logging.info(f"Метрики модели сохранены в: {metrics_path}")
 
-train_logistic_regression()
+if __name__ == "__main__":
+    train_logistic_regression()

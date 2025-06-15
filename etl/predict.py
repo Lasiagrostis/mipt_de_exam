@@ -81,4 +81,5 @@ def make_predictions():
     df_resampled.to_csv(output_path, index=False)
     logging.info(f"Предсказания сохранены в файл: {output_path}")
 
-make_predictions()
+if __name__ == "__main__":
+    make_predictions()
