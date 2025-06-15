@@ -50,7 +50,7 @@ docker-compose up airflow-init
 ```
 #### ▶️ 4. Запустите все сервисы Airflow
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 После запуска web-интерфейс Airflow будет доступен по адресу http://localhost:8080
 - Логин: admin
