@@ -6,13 +6,11 @@ from datetime import datetime
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score
-
-if "PROJECT_ROOT" not in os.environ:
-    os.environ["PROJECT_ROOT"] = "/opt/airflow"
+from config import get_project_root
     
 def load_latest_data():
     # Получаем путь до директории проекта
-    project_root = os.environ.get("PROJECT_ROOT", os.getcwd())
+    project_root = get_project_root()
     results_dir = os.path.join(project_root, "results", "data")
 
     today = datetime.today().strftime("%Y_%m_%d")
@@ -41,7 +39,7 @@ def load_latest_data():
 
 def train_logistic_regression():
     # Получаем путь до директории проекта
-    project_root = os.environ.get("PROJECT_ROOT", os.getcwd())
+    project_root = get_project_root()
     model_dir = os.path.join(project_root, "results", "models")
     os.makedirs(model_dir, exist_ok=True)
 

@@ -1,15 +1,16 @@
+print("Импорт библиотек")
 import pandas as pd
 import logging
 from datetime import datetime
 import os
+from config import get_project_root
 
-if "PROJECT_ROOT" not in os.environ:
-    os.environ["PROJECT_ROOT"] = "/opt/airflow"
+print("Импорт успешный")
 
 def load_breast_cancer_data():
+    print("Начинаем загрузку")
     # Универсальная настройка корневой директории
-    project_root = os.environ.get("PROJECT_ROOT", os.getcwd())
-    # project_root = '/opt/airflow'
+    project_root = get_project_root()
 
     logs_dir = os.path.join(project_root, "logs", "data_quality")
     results_dir = os.path.join(project_root, "results", "data")
@@ -48,7 +49,9 @@ def load_breast_cancer_data():
 
     save_path = os.path.join(results_dir, f"breast_cancer_data_{today}.csv")
     df.to_csv(save_path, index=False)
+    print(f"Файл сохраняется в: {save_path}")
     logger.info(f"Данные сохранены в файл: {save_path}")
+    print("Успешная загрузка")
     
 if __name__ == "__main__":
     load_breast_cancer_data()

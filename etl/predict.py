@@ -4,13 +4,11 @@ from datetime import datetime
 import pickle
 from sklearn.utils import resample
 import os
-
-if "PROJECT_ROOT" not in os.environ:
-    os.environ["PROJECT_ROOT"] = "/opt/airflow"
+from config import get_project_root
 
 def make_predictions():
     # Получение корневой директории
-    project_root = os.environ.get("PROJECT_ROOT", os.getcwd())
+    project_root = get_project_root()
     print(os.getcwd())
 
     models_dir = os.path.join(project_root, "results", "models")
